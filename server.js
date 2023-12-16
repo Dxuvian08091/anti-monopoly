@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(process.cwd(), "dist")));
+app.use(express.static(path.join(process.cwd(), "dist"), { maxAge: 31536000 }));
 
 app.get("/", (req, res) => {
   return res.sendFile(path.join(process.cwd(), "dist", "index.html"));
